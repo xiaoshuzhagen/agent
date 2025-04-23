@@ -75,8 +75,6 @@ class AgentClass:
             agent=self.agent,
             tools=self.tools,
             verbose=False,
-            streaming=True,  # 开启流式
-            callbacks=[],    # 后面告诉你怎么用callback处理流式输出
         ).configurable_fields(
             memory=ConfigurableField(
                 id="agent_memory",
@@ -110,7 +108,7 @@ class AgentClass:
                 "input": input_text
             })
             # response
-            return response
+            return {"output": response["output"]}
             
         except Exception as e:
             print(f"[Agent Error]: {str(e)}")

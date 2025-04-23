@@ -15,12 +15,11 @@ class EmotionClass:
         
         self.chat = None
 
-        # 构造llm
+        # 构造llm - 使用emotion专属模型key
         self.chat_model = ChatOpenAI(
-            model=os.getenv("BASE_MODEL"),
-            api_key=os.getenv("OPENAI_API_KEY"),
-            base_url=os.getenv("OPENAI_API_BASE"),
-            temperature=0
+            model=os.getenv("EMOTION_TOOL_MODEL"),
+            api_key=os.getenv("EMOTION_TOOL_API_KEY"),
+            base_url=os.getenv("EMOTION_API_BASE")
         )
 
     def Emotion_Sensing(self,input:str):
